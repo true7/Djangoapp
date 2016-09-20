@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head_title %}
+{{ instance.title }} | {{ block.super }}
+{% endblock head_title %}
+
+{% block content %}
+
+<div class='col-sm-6 col-sm-offset-3'>
+
+    {% if instance.image %}
+    <img src='{{ instance.image.url }}' class='img-responsive' />
+    {% endif %}
+
+    <h1>{{ title }}
+    <small>{% if instance.draft %}<span class="red-color"> Draft </span>{% endif %}
+        {% if instance.publish > today %}<span class="red-color">| Future post: </span>{% endif %}{{ instance.publish }}
+    </small></h1>
+
+    <p>Author: {{ instance.user }}</p>
+
+    <p><div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="box_count"
+    data-action="recommend" data-show-faces="true" data-share="false"></div><hr/></p>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class='post-detail-item'>{{ instance.get_markdown }}</div><hr/>
+
+            {% if request.user.is_superuser or request.user == instance.user %}
+            <p><a href="{{ instance.get_edit_url }}" class="btn btn-primary" role="button">Edit</a>
+            <a href="{{ instance.get_delete_url }}" class="btn btn-danger" role="button">Delete</a></p><br>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+            <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

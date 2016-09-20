@@ -1,0 +1,21 @@
+h1 {
+    color: #777777;
+}
+
+.margin-form {
+    margin-top: 60px;
+}
+
+.red-color {
+    color: red;
+}
+
+.wmd-panel {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    min-width: 450px !important;
+}
+
+.selectdatewidget {
+    width: 25% !important;
+}
