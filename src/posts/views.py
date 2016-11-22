@@ -87,8 +87,6 @@ def post_delete(request, slug=None):
 
 def user_posts(request):
     context = {}
-    if not request.user.is_authenticated:
-        raise Http404
     queryset_list = Post.objects.filter(user=request.user.id)
     if not queryset_list.exists():
         context['foreword'] = "I have no posts yet."

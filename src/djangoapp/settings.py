@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'markdown_deux',
     'posts',
     'accounts',
+    'rest_framework',
 ]
 
 LOGIN_URL = '/login/'
