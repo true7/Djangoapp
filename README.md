@@ -1,15 +1,5 @@
-Behold my little, but proud enough web-application, written in Django. Yes, it can leave a lot to be desired. But be sure - the work is still in progress. And as soon as it possible I will  improve it.
-
-
-
-To have a look at blog's work, you need to know:
-
-python version = 3.5
-django version = 1.9
-
-You can browse the work of the blog here: antiblog.pythonanywhere.com
-
-if you don't want to create your own user, login as one of them:
+# BLOG
+login as one of them:
 ss
 12345678                 - ordinary user
 
@@ -17,3 +7,18 @@ anna
 12345678                 - superuser
 
 They have much different permissions.
+
+## API urls
+
+127.0.0.1:8000/api/posts/ - list of  posts
+.../post/<slug>/edit/ - edit a post if you have permission
+.../post/<slug>/delete/ - delete
+.../post/<slug>/ - details of the post
+.../create/ - create the post
+
+## Searching, example
+
+127.0.0.1:8000/api/posts/?search=<post_name>&q=<username>&ordering=<field_name>
+
+API provides a double search. It's possible to search for name of post, username or content.
+You can order queryset by title, id, etc. Or reverse it with '-'.
