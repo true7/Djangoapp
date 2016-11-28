@@ -22,7 +22,7 @@ They have much different permissions.
 ## Searching, example
 
 '''
-127.0.0.1:8000/api/posts/?search=<post_name>&q=<username>&ordering=<field_name>
+127.0.0.1:8000/api/posts/?search=post_name&q=username&ordering=field_name
 '''
 
 API provides a double search. It's possible to search for name of post, username or content.
